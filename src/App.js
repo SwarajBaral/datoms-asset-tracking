@@ -45,7 +45,7 @@ function App() {
             >
               <Menu.ItemGroup key="Clients" title="Clients">
                 <Menu.Item key="Client1">Client 1</Menu.Item>
-                <Menu.Item key="Client2">Client 2</Menu.Item>
+                <Menu.Item key="Client2">Client 3</Menu.Item>
               </Menu.ItemGroup>
             </SubMenu>
           </Menu>

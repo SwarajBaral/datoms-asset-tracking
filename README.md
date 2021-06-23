@@ -1,1 +1,3 @@
-# datoms-asset-tracking
+# Datoms asset tracker
+
+Author - Swaraj Baral

@@ -18,6 +18,7 @@ const pointB = {
     "circle-color": "red",
   },
 };
+
 const bbsr = {
   latitude: 20.2961,
   longitude: 85.8245,
@@ -25,9 +26,17 @@ const bbsr = {
 
 const R = 5000;
 
+// const randomRoutes = [{
+//   a: {
+//     lat: "20.246200",
+//     long: "85.885661"
+//   }
+// }]
+
 function pointOnCircle({ center, angle, radius }) {
   const randomPoint = randomLocation.randomCirclePoint(bbsr, R);
   //   console.log(randomPoint);
+  // API call with randomPoint
   return {
     type: "Point",
     coordinates: [randomPoint.longitude, randomPoint.latitude],
@@ -40,14 +49,22 @@ function Map() {
     longitude: 85.8245,
     width: "100%",
     height: "100vh",
-    zoom: 10,
+    zoom: 9,
   });
   const [pointAData, setPointAData] = useState(null);
   const [pointBData, setPointBData] = useState(null);
+  const [date, setDate] = useState(new Date().toLocaleString());
 
   useEffect(() => {
     const interval = setInterval(() => {
       setPointAData(
+        pointOnCircle({
+          center: [-100, 0],
+          angle: Date.now() / 1000,
+          radius: 20,
+        })
+      );
+      setPointBData(
         pointOnCircle({
           center: [-100, 0],
           angle: Date.now() / 1000,
@@ -69,16 +86,13 @@ function Map() {
     // );
     return () => {
       clearInterval(interval);
-      //   clearInterval(animation);
-
-      //   window.cancelAnimationFrame(animation);
     };
   });
 
   return (
-    <>
+    <div>
       <Title level={4}>Live tracking</Title>
-      <Text type="secondary">22/06/2021, 12:00 PM</Text>
+      <Text type="secondary">{date}</Text>
       <ReactMapGL
         id="map"
         {...viewport}
@@ -93,13 +107,13 @@ function Map() {
             <Layer {...pointA} />
           </Source>
         )}
-        {/* {pointBData && (
+        {pointBData && (
           <Source type="geojson" data={pointBData}>
             <Layer {...pointB} />
           </Source>
-        )} */}
+        )}
       </ReactMapGL>
-    </>
+    </div>
   );
 }
 

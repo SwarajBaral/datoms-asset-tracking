@@ -20,30 +20,11 @@ function App() {
   const { Footer, Sider, Content } = Layout;
   return (
     <div className="App">
-      <HeaderLayout />
       <Router>
         <Layout>
           <Sidebar />
-          {/* <Sider collapsible collapsed={collapse} onCollapse={setCollapse}>
-            <Menu defaultSelectedKeys={["Dashboard"]}>
-              <Menu.Item key="Dashboard">Dashboard</Menu.Item>
-              <SubMenu
-                icon={<UserOutlined />}
-                key="Clients"
-                title={
-                  <span>
-                    <span>Clients</span>
-                  </span>
-                }
-              >
-                <Menu.ItemGroup key="Clients" title="Clients">
-                  <Menu.Item key="Client1">Client 1</Menu.Item>
-                  <Menu.Item key="Client2">Client 3</Menu.Item>
-                </Menu.ItemGroup>
-              </SubMenu>
-            </Menu>
-          </Sider> */}
           <Layout>
+            <HeaderLayout />
             <Content style={{ padding: "0 50px" }}>
               <Breadcrumb style={{ margin: "16px 0" }}>
                 <Breadcrumb.Item>Dashboard</Breadcrumb.Item>

@@ -11,6 +11,11 @@ import Map from "./Components/Map/Map";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Analytics from "./Components/Analytics/Analytics";
 
+const consignment_value = 60;
+const on_road_value = 43;
+const on_hold_value = 64;
+const overdue_value = 16;
+
 function App() {
   const [collapse, setCollapse] = useState(false);
   const { Footer, Sider, Content } = Layout;
@@ -23,37 +28,25 @@ function App() {
             <HeaderLayout />
             <Content style={{ padding: "0 50px", marginTop: "50px" }}>
               <div className="site-card-wrapper">
-                <Row gutter={16}>
-                  <Col span={6}>
-                    <Card
-                      bordered={true}
-                      // style={{ border: " solid black" }}
-                    >
-                      Card content
+                <Row gutter={16} style={{}}>
+                  <Col xs={24} md={6}>
+                    <Card className="overview-cards" title={"Consignment"}>
+                      {consignment_value}
                     </Card>
                   </Col>
-                  <Col span={6}>
-                    <Card
-                      bordered={true}
-                      // style={{ border: " solid black" }}
-                    >
-                      Card content
+                  <Col xs={24} md={6}>
+                    <Card className="overview-cards" title={"On Road"}>
+                      {on_road_value}
                     </Card>
                   </Col>
-                  <Col span={6}>
-                    <Card
-                      bordered={true}
-                      // style={{ border: " solid black" }}
-                    >
-                      Card content
+                  <Col xs={24} md={6}>
+                    <Card className="overview-cards" title={"On Hold"}>
+                      {on_hold_value}
                     </Card>
                   </Col>
-                  <Col span={6}>
-                    <Card
-                      bordered={true}
-                      // style={{ border: " solid black" }}
-                    >
-                      Card content
+                  <Col xs={24} md={6}>
+                    <Card className="overview-cards" title={"Overdue"}>
+                      {overdue_value}
                     </Card>
                   </Col>
                 </Row>

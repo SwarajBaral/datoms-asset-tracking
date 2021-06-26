@@ -67,3 +67,37 @@ code {
 .mapboxgl-map {
   border-radius: 6px;
 }
+
+.overview-cards {
+  /* outline: 1px solid red; */
+  /* padding: 0.5em; */
+  border-radius: 6px;
+  border: 0.0125em solid #dfe0eb;
+  transition: 0.15s all;
+  text-align: center;
+  color: black;
+  font-size: 40px;
+}
+
+.overview-cards .ant-card-head {
+  color: #9fa2b4;
+  border: 0;
+  padding: 0;
+  font-size: 19px;
+}
+.overview-cards .ant-card-body {
+  margin: 0;
+  padding: 12px 32px 24px 32px;
+  font-weight: 500;
+}
+
+.overview-cards:hover {
+  box-shadow: 0 0 3pt 2pt #3751ff;
+  color: #3751ff;
+  cursor: pointer;
+  /* border: 2px solid ; */
+}
+
+.overview-cards:hover .ant-card-head {
+  color: #3751ff;
+}

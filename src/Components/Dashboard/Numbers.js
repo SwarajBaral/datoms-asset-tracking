@@ -106,8 +106,12 @@ export default function MyComponent(props) {
                 </center>
               </Card>
 
-              <div style={{ textAlign: "center" }}>
-                <Liquid {...batteryConfig} />;
+              <div className="battery-sensor" style={{ textAlign: "center" }}>
+                <Liquid {...batteryConfig} />
+                <center>Sensor Battery</center>
+                <center>
+                  <small>Time Updated: {time}</small>
+                </center>
               </div>
             </Col>
             {/* <Col span={1}></Col> */}

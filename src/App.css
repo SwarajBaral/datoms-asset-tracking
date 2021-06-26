@@ -84,6 +84,12 @@ code {
   border: 0;
   padding: 0;
   font-size: 19px;
+  min-height: 0;
+}
+.overview-cards .ant-card-head-title {
+  min-height: 0;
+  padding: 0;
+  padding-top: 12px;
 }
 .overview-cards .ant-card-body {
   margin: 0;
@@ -92,12 +98,12 @@ code {
 }
 
 .overview-cards:hover {
-  box-shadow: 0 0 3pt 2pt #3751ff;
-  color: #3751ff;
+  box-shadow: 0 0 3pt 2pt hsl(310, 80%, 29%);
+  color: hsl(310, 80%, 29%);
   cursor: pointer;
   /* border: 2px solid ; */
 }
 
 .overview-cards:hover .ant-card-head {
-  color: #3751ff;
+  color: hsl(310, 80%, 29%);
 }

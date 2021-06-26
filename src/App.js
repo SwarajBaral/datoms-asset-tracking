@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Breadcrumb, Layout, Menu } from "antd";
+import { Breadcrumb, Layout, Menu, Card, Col, Row } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import SubMenu from "antd/lib/menu/SubMenu";
 import DashBoard from "./Components/Dashboard/DashBoard";
@@ -25,6 +25,44 @@ function App() {
           <Sidebar />
           <Layout>
             <HeaderLayout />
+            <Content style={{ padding: "0 50px", marginTop: "50px" }}>
+              <div className="site-card-wrapper">
+                <Row gutter={16}>
+                  <Col span={6}>
+                    <Card
+                      bordered={true}
+                      // style={{ border: " solid black" }}
+                    >
+                      Card content
+                    </Card>
+                  </Col>
+                  <Col span={6}>
+                    <Card
+                      bordered={true}
+                      // style={{ border: " solid black" }}
+                    >
+                      Card content
+                    </Card>
+                  </Col>
+                  <Col span={6}>
+                    <Card
+                      bordered={true}
+                      // style={{ border: " solid black" }}
+                    >
+                      Card content
+                    </Card>
+                  </Col>
+                  <Col span={6}>
+                    <Card
+                      bordered={true}
+                      // style={{ border: " solid black" }}
+                    >
+                      Card content
+                    </Card>
+                  </Col>
+                </Row>
+              </div>
+            </Content>
             <Content style={{ padding: "0 50px" }}>
               <Breadcrumb style={{ margin: "16px 0" }}>
                 <Breadcrumb.Item>Dashboard</Breadcrumb.Item>

@@ -24,6 +24,7 @@ function Sidebar() {
       collapsedWidth="0"
       collapsed={collapse}
       onCollapse={setCollapse}
+      style={{ baclground: "hsl(310,32%,29%)" }}
       // onBreakpoint={() => setCollapse(true)}
     >
       <div className="logo">
@@ -42,7 +43,7 @@ function Sidebar() {
           ASSET TRACKING
         </Title>
       </Header> */}
-      <Menu defaultSelectedKeys={["Dashboard"]} theme="dark">
+      <Menu defaultSelectedKeys={["Dashboard"]}>
         <Menu.Item key="Dashboard" icon={<IdcardOutlined />}>
           <Link to="/">Dashboard</Link>
         </Menu.Item>

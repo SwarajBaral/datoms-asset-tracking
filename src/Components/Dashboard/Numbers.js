@@ -1,272 +1,135 @@
+import React, { useEffect, useState } from 'react';
+import { Card, Row, Col, Table, Input, Button, Space } from 'antd';
+import GaugeChart from 'react-gauge-chart'
+import { Temperature } from 'react-environment-chart';
+
+const Card_title = 'Shipment Details'
+const Card_content = 'In transit'
+const Asset_number = 'aexkiXKXJSDF092'
+const temp_value = 18
+const tilt_percent = 0.47
+const gauge_percent = 0.15
+const consignment_value = 60
+const on_road_value = 43
+const on_hold_value = 64
+const overdue_value = 16
+
+const dataSource = [
+    {
+        key: 1,
+        aid: 'AexkiXKXJSDF092',
+        remark: 'In transit'
+    },
+    {
+        key: 2,
+        aid: 'AmanKDJSLKKL032',
+        remark: 'In transit'
+    },
+];
+
+const columns = [
+    {
+        title: 'Asset ID',
+        dataIndex: 'aid',
+        key: 'aid',
+    },
+    {
+        title: 'Remark',
+        dataIndex: 'remark',
+        key: 'remark',
+    }
+];
+
 export default function MyComponent(props) {
-  return (
-    <div
-      css={{
-        display: "flex",
-        maxWidth: "1122px",
-        justifyContent: "flex-start",
-        alignItems: "flex-start",
-        height: "134px",
-        width: "1122px",
-      }}
-    >
-      <div
-        css={{
-          display: "flex",
-          maxWidth: "258px",
-        }}
-      >
-        <div
-          css={{
-            display: "flex",
-            maxWidth: "258px",
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            height: "134px",
-            width: "258px",
-          }}
-        >
-          <div
-            css={{
-              display: "flex",
-              maxWidth: "258px",
-              height: "134px",
-              width: "258px",
-              borderRadius: "8px",
-              borderColor: "rgba(223, 224, 235, 1)",
-              borderWidth: "1px",
-              borderStyle: "solid",
-              backgroundColor: "rgba(255, 255, 255, 1)",
-            }}
-          />
+    const today = new Date()
+
+    const [date, setDate] = useState(today.toLocaleString())
+    const [time, setTime] = useState(today.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true }))
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+        }, 1000);
+        return () => {
+            clearInterval(interval);
+        };
+    });
+    return (
+        <div>
+            <h1>Shipment Status</h1>
+            <p>{date}</p>
+            <Row>
+                <Col span={6}>
+                    <Card title={'Consignment'}>
+                        {consignment_value}
+                    </Card>
+                </Col>
+                <Col span={6}>
+                    <Card title={'On Road'}>
+                        {on_road_value}
+                    </Card>
+                </Col>
+                <Col span={6}>
+                    <Card title={'On Hold'}>
+                        {on_hold_value}
+                    </Card>
+                </Col>
+                <Col span={6}>
+                    <Card title={'Overdue'}>
+                        {overdue_value}
+                    </Card>
+                </Col>
+            </Row><br />
+            <Row>
+                <Col span={12}>
+                    <Card title={Card_title} >
+                        <center>
+                            {Card_content}
+                        </center>
+                        <center>
+                            Asset ID : {Asset_number}
+                        </center>
+                        <small>Time Updated : {time}</small>
+                    </Card><br />
+                    <Table dataSource={dataSource} columns={columns} />
+                </Col>
+                <Col span={12}>
+                    <center><h1>Asset Details</h1></center>
+                    <Row>
+                        <Col span={1}></Col>
+                        <Col span={11}>
+                            <Card>
+                                <Temperature value={temp_value} height={300} />
+                                <center>Temperature - <b>{temp_value} °C</b></center>
+                            </Card>
+                        </Col>
+                        <Col span={1}></Col>
+                        <Col span={11}>
+                            <Card title='Orientation'>
+                                <GaugeChart id="gauge-chart2"
+                                    nrOfLevels={30}
+                                    percent={tilt_percent}
+                                    formatTextValue={tilt_percent => (tilt_percent * 1.80).toFixed(1) + ' deg'}
+                                    cornerRadius={3}
+                                    textColor='#464A4F'
+                                />
+                                <center>Tilt(Deg)</center>
+                                <small>Time Updated: {time}</small>
+                            </Card>
+                            <br />
+                            <Card title='Shock'>
+                                <GaugeChart id="gauge-chart3"
+                                    nrOfLevels={8}
+                                    percent={gauge_percent}
+                                    formatTextValue={gauge_percent => (gauge_percent / 12.5).toFixed(1) + ' G'}
+                                    textColor='#464A4F'
+                                />
+                                <center>Force(G)</center>
+                                <small>Time Updated: {time}</small>
+                            </Card>
+                        </Col>
+                    </Row>
+                </Col>
+            </Row>
         </div>
-        <div
-          css={{
-            maxWidth: "194px",
-            color: "rgba(159, 162, 180, 1)",
-            fontSize: "19px",
-            letterSpacing: "0.4000000059604645px",
-            textAlign: "center",
-            fontFamily: "Mulish, sans-serif",
-          }}
-        >
-          Consignments
-        </div>
-        <div
-          css={{
-            maxWidth: "194px",
-            color: "rgba(37, 39, 51, 1)",
-            fontSize: "40px",
-            letterSpacing: "1px",
-            textAlign: "center",
-            fontFamily: "Mulish, sans-serif",
-          }}
-        >
-          60
-        </div>
-      </div>
-      <div
-        css={{
-          display: "flex",
-          maxWidth: "258px",
-        }}
-      >
-        <div
-          css={{
-            display: "flex",
-            maxWidth: "258px",
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            height: "134px",
-            width: "258px",
-          }}
-        >
-          <div
-            css={{
-              display: "flex",
-              maxWidth: "258px",
-              height: "134px",
-              width: "258px",
-              borderRadius: "8px",
-              borderColor: "rgba(223, 224, 235, 1)",
-              borderWidth: "1px",
-              borderStyle: "solid",
-              backgroundColor: "rgba(255, 255, 255, 1)",
-            }}
-          />
-        </div>
-        <div
-          css={{
-            maxWidth: "194px",
-            color: "rgba(159, 162, 180, 1)",
-            fontSize: "19px",
-            letterSpacing: "0.4000000059604645px",
-            textAlign: "center",
-            fontFamily: "Mulish, sans-serif",
-          }}
-        >
-          On road
-        </div>
-        <div
-          css={{
-            maxWidth: "194px",
-            color: "rgba(37, 39, 51, 1)",
-            fontSize: "40px",
-            letterSpacing: "1px",
-            textAlign: "center",
-            fontFamily: "Mulish, sans-serif",
-          }}
-        >
-          43
-        </div>
-      </div>
-      <div
-        css={{
-          display: "flex",
-          maxWidth: "258px",
-        }}
-      >
-        <div
-          css={{
-            display: "flex",
-            maxWidth: "258px",
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            height: "134px",
-            width: "258px",
-          }}
-        >
-          <div
-            css={{
-              display: "flex",
-              maxWidth: "258px",
-              height: "134px",
-              width: "258px",
-              borderRadius: "8px",
-              borderColor: "rgba(223, 224, 235, 1)",
-              borderWidth: "1px",
-              borderStyle: "solid",
-              backgroundColor: "rgba(255, 255, 255, 1)",
-            }}
-          />
-        </div>
-        <div
-          css={{
-            maxWidth: "194px",
-            color: "rgba(159, 162, 180, 1)",
-            fontSize: "19px",
-            letterSpacing: "0.4000000059604645px",
-            textAlign: "center",
-            fontFamily: "Mulish, sans-serif",
-          }}
-        >
-          On hold
-        </div>
-        <div
-          css={{
-            maxWidth: "194px",
-            color: "rgba(37, 39, 51, 1)",
-            fontSize: "40px",
-            letterSpacing: "1px",
-            textAlign: "center",
-            fontFamily: "Mulish, sans-serif",
-          }}
-        >
-          64
-        </div>
-      </div>
-      <div
-        css={{
-          display: "flex",
-          maxWidth: "258px",
-        }}
-      >
-        <div
-          css={{
-            display: "flex",
-            maxWidth: "258px",
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            height: "134px",
-            width: "258px",
-          }}
-        >
-          <div
-            css={{
-              display: "flex",
-              maxWidth: "258px",
-              height: "134px",
-              width: "258px",
-              borderRadius: "8px",
-              borderColor: "rgba(221, 226, 255, 1)",
-              borderWidth: "2px",
-              borderStyle: "solid",
-            }}
-          />
-          <div
-            css={{
-              display: "flex",
-              maxWidth: "258px",
-              height: "134px",
-              width: "258px",
-              borderRadius: "8px",
-              borderColor: "rgba(55, 81, 255, 1)",
-              borderWidth: "1px",
-              borderStyle: "solid",
-              backgroundColor: "rgba(255, 255, 255, 1)",
-            }}
-          />
-        </div>
-        <div
-          css={{
-            maxWidth: "194px",
-            color: "rgba(55, 81, 255, 1)",
-            fontSize: "19px",
-            letterSpacing: "0.4000000059604645px",
-            textAlign: "center",
-            fontFamily: "Mulish, sans-serif",
-          }}
-        >
-          Overdue
-        </div>
-        <div
-          css={{
-            maxWidth: "194px",
-            color: "rgba(55, 81, 255, 1)",
-            fontSize: "40px",
-            letterSpacing: "1px",
-            textAlign: "center",
-            fontFamily: "Mulish, sans-serif",
-          }}
-        >
-          16
-        </div>
-        <div
-          css={{
-            display: "flex",
-            maxWidth: "16px",
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            height: "16px",
-            width: "16px",
-          }}
-        >
-          {/* <Image
-              image="https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fb7e0aebc4316400ab99eb9bd711fcec2"
-              backgroundPosition="center"
-              backgroundSize="contain"
-              aspectRatio={1.067082107356726}
-              css={{
-                display: "flex",
-                position: "relative",
-                minWidth: "20px",
-                minHeight: "20px",
-                maxWidth: "14.308304786682129px",
-                width: "14.308304786682129px",
-              }}
-            /> */}
-        </div>
-      </div>
-    </div>
-  );
+    );
 }

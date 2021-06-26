@@ -29,3 +29,22 @@ code {
   float: right;
   margin: 16px 0 16px 24px;
 }
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 32px;
+  margin: 16px;
+  /* background: rgba(255, 255, 255, 0.3); */
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}

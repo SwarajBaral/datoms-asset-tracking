@@ -1,4 +1,5 @@
-import { Breadcrumb, Layout, Menu } from "antd";
+import { Breadcrumb, Menu, Layout } from "antd";
+import { Header } from "antd/lib/layout/layout";
 import SubMenu from "antd/lib/menu/SubMenu";
 import {
   AreaChartOutlined,
@@ -6,14 +7,41 @@ import {
   IdcardOutlined,
   UserOutlined,
 } from "@ant-design/icons";
+
+import Title from "antd/lib/typography/Title";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
 function Sidebar() {
   const [collapse, setCollapse] = useState(false);
 
   const { Sider } = Layout;
+
   return (
-    <Sider collapsible collapsed={collapse} onCollapse={setCollapse}>
+    <Sider
+      collapsible
+      breakpoint="lg"
+      collapsedWidth="0"
+      collapsed={collapse}
+      onCollapse={setCollapse}
+      // onBreakpoint={() => setCollapse(true)}
+    >
+      <div className="logo">
+        <img src="./datoms.svg" alt="logo" width="100%" />
+      </div>
+      {/* <Header
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "space-between",
+          width: "100%",
+        }}
+      >
+        <Title style={{ color: "white", paddingTop: "8px" }} level={3}>
+          ASSET TRACKING
+        </Title>
+      </Header> */}
       <Menu defaultSelectedKeys={["Dashboard"]} theme="dark">
         <Menu.Item key="Dashboard" icon={<IdcardOutlined />}>
           <Link to="/">Dashboard</Link>

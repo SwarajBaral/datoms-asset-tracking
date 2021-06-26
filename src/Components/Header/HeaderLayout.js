@@ -12,9 +12,14 @@ function HeaderLayout() {
           alignItems: "center",
           justifyContent: "space-between",
           width: "100%",
+          background: "#fff",
+          padding: "0 0.5rem",
+          // position: "fixed",
+          // zIndex: 1,
+          // width: "100%",
         }}
       >
-        <Title style={{ color: "white", paddingTop: "8px" }} level={3}>
+        <Title style={{ paddingTop: "8px" }} level={3}>
           ASSET TRACKING
         </Title>
         <img src="./datoms.svg" alt="logo" width="200px" />

@@ -1,4 +1,5 @@
 # Datoms asset tracker
-
-Author - Swaraj Baral
-Author - Aman Jena
+<ul>
+  <li>Author - Swaraj Baral</li>
+  <li>Author - Aman Jena</li>
+</ul>

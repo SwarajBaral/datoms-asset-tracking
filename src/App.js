@@ -13,7 +13,10 @@ import Analytics from "./Components/Analytics/Analytics";
 
 function App() {
     const [collapse, setCollapse] = useState(false);
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     const { Footer, Sider, Content } = Layout;
     return (
         <div className="App">
@@ -22,6 +25,35 @@ function App() {
                     <Sidebar />
                     <Layout>
                         <HeaderLayout />
+<<<<<<< Updated upstream
+=======
+                        <Content style={{ padding: "0 50px", marginTop: "50px" }}>
+                            <div className="site-card-wrapper">
+                                <Row gutter={16} style={{}}>
+                                    <Col xs={24} md={6}>
+                                        <Card className="overview-cards" title={"Consignment"}>
+                                            {consignment_value}
+                                        </Card>
+                                    </Col>
+                                    <Col xs={24} md={6}>
+                                        <Card className="overview-cards" title={"On Road"}>
+                                            {on_road_value}
+                                        </Card>
+                                    </Col>
+                                    <Col xs={24} md={6}>
+                                        <Card className="overview-cards" title={"On Hold"}>
+                                            {on_hold_value}
+                                        </Card>
+                                    </Col>
+                                    <Col xs={24} md={6}>
+                                        <Card className="overview-cards" title={"Overdue"}>
+                                            {overdue_value}
+                                        </Card>
+                                    </Col>
+                                </Row>
+                            </div>
+                        </Content>
+>>>>>>> Stashed changes
                         <Content style={{ padding: "0 50px" }}>
                             <Breadcrumb style={{ margin: "16px 0" }}>
                                 <Breadcrumb.Item>Dashboard</Breadcrumb.Item>

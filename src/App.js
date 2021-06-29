@@ -1,22 +1,20 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Breadcrumb, Layout, Menu } from "antd";
-import { UserOutlined } from "@ant-design/icons";
+import { Breadcrumb, Layout, Row, Col, Card } from "antd";
 import Numbers from "./Components/Dashboard/Numbers";
-
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 import HeaderLayout from "./Components/Header/HeaderLayout";
 import Map from "./Components/Map/Map";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Analytics from "./Components/Analytics/Analytics";
 
+const consignment_value = 64
+const on_road_value = 32
+const on_hold_value = 16
+const overdue_value = 22
+
 function App() {
     const [collapse, setCollapse] = useState(false);
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     const { Footer, Sider, Content } = Layout;
     return (
         <div className="App">
@@ -25,8 +23,6 @@ function App() {
                     <Sidebar />
                     <Layout>
                         <HeaderLayout />
-<<<<<<< Updated upstream
-=======
                         <Content style={{ padding: "0 50px", marginTop: "50px" }}>
                             <div className="site-card-wrapper">
                                 <Row gutter={16} style={{}}>
@@ -53,7 +49,6 @@ function App() {
                                 </Row>
                             </div>
                         </Content>
->>>>>>> Stashed changes
                         <Content style={{ padding: "0 50px" }}>
                             <Breadcrumb style={{ margin: "16px 0" }}>
                                 <Breadcrumb.Item>Dashboard</Breadcrumb.Item>

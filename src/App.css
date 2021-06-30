@@ -40,6 +40,25 @@ code {
   /* background: rgba(255, 255, 255, 0.3); */
 }
 
+.header-logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 1em;
+}
+
+.header-logo {
+  width: 75px;
+  height: 75px;
+}
+
+.header-title {
+  margin-left: 1.5rem;
+  padding-top: 5px;
+}
+
 .site-layout .site-layout-background {
   background: #fff;
 }
@@ -49,21 +68,50 @@ code {
   height: 100%;
 }
 .ant-layout-sider-dark {
-  background: hsl(310, 32%, 29%);
+  /* background: hsl(310, 32%, 29%); */
 }
 .ant-menu {
   background: transparent;
   color: #a4a6b3;
 }
 .ant-menu-item-selected {
-  border-left: 4px solid #dde2ff;
+  /* border-left: 4px solid #dde2ff; */
+}
+.ant-menu-item-selected a {
+  color: white !important;
+}
+.ant-menu-item-selected .ant-menu-item-icon {
+  color: white !important;
+}
+
+.ant-menu-item-icon {
+  color: #b2b2b2;
+  font-size: 20px !important;
+  font-weight: bold;
+}
+
+.ant-menu-item-active .ant-menu-item-icon {
+  color: #fff;
 }
 .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
-  background-color: rgba(255, 255, 255, 0.2);
+  /* background-color: rgba(255, 255, 255, 0.2); */
+  background-color: rgba(255, 133, 0, 0.9);
 }
 .ant-menu-item a {
+  color: #b2b2b2;
+  font-size: 16px;
+
+  /* font-size: 1.25em; */
+}
+
+.ant-menu-item a:hover {
   color: white;
 }
+.ant-menu-item:hover {
+  /* background-color: rgba(255, 255, 255, 0.2); */
+  background-color: rgba(255, 133, 0, 0.66);
+}
+
 .mapboxgl-map {
   border-radius: 6px;
 }
@@ -84,6 +132,12 @@ code {
   border: 0;
   padding: 0;
   font-size: 19px;
+  min-height: 0;
+}
+.overview-cards .ant-card-head-title {
+  min-height: 0;
+  padding: 0;
+  padding-top: 12px;
 }
 .overview-cards .ant-card-body {
   margin: 0;
@@ -92,12 +146,19 @@ code {
 }
 
 .overview-cards:hover {
-  box-shadow: 0 0 3pt 2pt #3751ff;
-  color: #3751ff;
+  box-shadow: 0 0 3pt 2pt rgba(255, 133, 0, 1);
+  color: rgba(255, 133, 0, 1);
   cursor: pointer;
   /* border: 2px solid ; */
 }
 
 .overview-cards:hover .ant-card-head {
-  color: #3751ff;
+  color: rgba(255, 133, 0, 1);
+}
+
+.user-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 200px;
 }

@@ -12,6 +12,8 @@ import Title from "antd/lib/typography/Title";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+import logo from "./D.svg";
+
 function Sidebar() {
   const [collapse, setCollapse] = useState(false);
 
@@ -20,15 +22,19 @@ function Sidebar() {
   return (
     <Sider
       collapsible
-      breakpoint="lg"
-      collapsedWidth="0"
+      // breakpoint="lg"
+      // collapsedWidth="0"
       collapsed={collapse}
       onCollapse={setCollapse}
-      style={{ baclground: "hsl(310,32%,29%)" }}
+      style={{ baclground: "hsl(209,100%,16%)" }}
       // onBreakpoint={() => setCollapse(true)}
     >
       <div className="logo">
-        <img src="./datoms.svg" alt="logo" width="100%" />
+        <img
+          src={collapse ? logo : "./datoms.svg"}
+          alt="logo"
+          width={collapse ? "60%" : "100%"}
+        />
       </div>
       {/* <Header
         style={{
@@ -53,7 +59,7 @@ function Sidebar() {
         <Menu.Item key="Analytics" icon={<AreaChartOutlined />}>
           <Link to="/analytics">Analytics</Link>
         </Menu.Item>
-        <SubMenu
+        {/* <SubMenu
           icon={<UserOutlined />}
           key="Clients"
           title={
@@ -66,7 +72,7 @@ function Sidebar() {
             <Menu.Item key="Client1">Client 1</Menu.Item>
             <Menu.Item key="Client2">Client 3</Menu.Item>
           </Menu.ItemGroup>
-        </SubMenu>
+        </SubMenu> */}
       </Menu>
     </Sider>
   );

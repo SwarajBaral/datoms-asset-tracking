@@ -80,6 +80,7 @@ export default function MyComponent(props) {
             <h1>Shipment Status</h1>
             <p>{date}</p>
 
+<<<<<<< HEAD
             <Row>
                 <Col span={12}>
                     <Card title={Card_title} style={{ margin: 5 }}>
@@ -150,4 +151,54 @@ export default function MyComponent(props) {
             </Row>
         </div>
     );
+=======
+              <div className="battery-sensor" style={{ textAlign: "center" }}>
+                <Liquid {...batteryConfig} />
+                <center>Sensor Battery</center>
+                <center>
+                  <small>Time Updated: {time}</small>
+                </center>
+              </div>
+            </Col>
+            {/* <Col span={1}></Col> */}
+            <Col span={11}>
+              <Card title="Orientation">
+                <GaugeChart
+                  id="gauge-chart2"
+                  nrOfLevels={30}
+                  percent={tilt_percent}
+                  formatTextValue={(tilt_percent) =>
+                    (tilt_percent * 1.8).toFixed(1) + " deg"
+                  }
+                  cornerRadius={3}
+                  textColor="#464A4F"
+                />
+                <center>Tilt(Deg)</center>
+                <center>
+                  <small>Time Updated: {time}</small>
+                </center>
+              </Card>
+              <br />
+              <Card title="Shock">
+                <GaugeChart
+                  id="gauge-chart3"
+                  nrOfLevels={8}
+                  percent={gauge_percent}
+                  formatTextValue={(gauge_percent) =>
+                    (gauge_percent / 12.5).toFixed(1) + " G"
+                  }
+                  textColor="#464A4F"
+                />
+                <center>Force(G)</center>
+                <center>
+                  <small>Time Updated: {time}</small>
+                </center>
+              </Card>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </div>
+  );
+>>>>>>> master
 }

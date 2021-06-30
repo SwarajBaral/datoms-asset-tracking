@@ -8,68 +8,42 @@ import HeaderLayout from "./Components/Header/HeaderLayout";
 import Map from "./Components/Map/Map";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Analytics from "./Components/Analytics/Analytics";
-
-const consignment_value = 64
-const on_road_value = 32
-const on_hold_value = 16
-const overdue_value = 22
+import InfoCards from "./Components/Dashboard/InfoCards";
 
 function App() {
-    const [collapse, setCollapse] = useState(false);
-    const { Footer, Sider, Content } = Layout;
-    return (
-        <div className="App">
-            <Router>
-                <Layout>
-                    <Sidebar />
-                    <Layout>
-                        <HeaderLayout />
-                        <Content style={{ padding: "0 50px", marginTop: "50px" }}>
-                            <div className="site-card-wrapper">
-                                <Row gutter={16} style={{}}>
-                                    <Col xs={24} md={6}>
-                                        <Card className="overview-cards" title={"Consignment"}>
-                                            {consignment_value}
-                                        </Card>
-                                    </Col>
-                                    <Col xs={24} md={6}>
-                                        <Card className="overview-cards" title={"On Road"}>
-                                            {on_road_value}
-                                        </Card>
-                                    </Col>
-                                    <Col xs={24} md={6}>
-                                        <Card className="overview-cards" title={"On Hold"}>
-                                            {on_hold_value}
-                                        </Card>
-                                    </Col>
-                                    <Col xs={24} md={6}>
-                                        <Card className="overview-cards" title={"Overdue"}>
-                                            {overdue_value}
-                                        </Card>
-                                    </Col>
-                                </Row>
-                            </div>
-                        </Content>
-                        <Content style={{ padding: "0 50px" }}>
-                            <Breadcrumb style={{ margin: "16px 0" }}>
-                                <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
-                            </Breadcrumb>
-                            <div className="site-layout-content">
-                                <Switch>
-                                    <Route path="/" exact component={Map} />
-                                    <Route path="/overview" exact component={Numbers} />
-                                    <Route path="/analytics" exact component={Analytics} />
-                                </Switch>
-                            </div>
-                        </Content>
-                        <Footer style={{ textAlign: "center" }}>
-                            Asset Tracking ©2021
-                        </Footer>
-                    </Layout>
-                </Layout>
-            </Router>
-        </div>
-    );
+  const [collapse, setCollapse] = useState(false);
+  const { Footer, Sider, Content } = Layout;
+  return (
+    <div className="App">
+      <Router>
+        <Switch>
+          <Layout>
+            <Sidebar />
+            <Layout>
+              <HeaderLayout />
+              <Content style={{ padding: "0 50px", marginTop: "50px" }}>
+                <div className="site-card-wrapper">
+                  <Route path="/" exact component={InfoCards} />
+                </div>
+              </Content>
+              <Content style={{ padding: "0 50px" }}>
+                <Breadcrumb style={{ margin: "16px 0" }}>
+                  <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+                </Breadcrumb>
+                <div className="site-layout-content">
+                  <Route path="/" exact component={Map} />
+                  <Route path="/overview" exact component={Numbers} />
+                </div>
+              </Content>
+              <Footer style={{ textAlign: "center" }}>
+                Asset Tracking ©2021
+              </Footer>
+            </Layout>
+          </Layout>
+        </Switch>
+      </Router>
+    </div>
+  );
 }
 
 export default App;

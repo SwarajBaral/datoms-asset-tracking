@@ -1,9 +1,17 @@
 import Text from "antd/lib/typography/Text";
 import Title from "antd/lib/typography/Title";
 import React, { useEffect, useState } from "react";
-import ReactMapGL, { Source, Layer, FullscreenControl } from "react-map-gl";
 import randomLocation from "random-location";
 import { Card, Table, Tag, Space, Col, Row } from "antd";
+
+import ReactMapGL, { Source, Layer, FullscreenControl } from "react-map-gl";
+import mapboxgl from "mapbox-gl";
+
+import { useMediaQuery } from "../hooks";
+
+mapboxgl.workerClass =
+  // eslint-disable-next-line import/no-webpack-loader-syntax
+  require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 const { Column, ColumnGroup } = Table;
 
@@ -60,6 +68,9 @@ function Map() {
   const [pointAData, setPointAData] = useState({ coordinates: [0, 0] });
   const [pointBData, setPointBData] = useState({ coordinates: [0, 0] });
   const [date, setDate] = useState(new Date().toLocaleString());
+
+  let isMobile = useMediaQuery("(max-width: 992px)");
+
   useEffect(() => {
     const interval = setInterval(() => {
       setDate(new Date().toLocaleString());
@@ -192,7 +203,9 @@ function Map() {
           {...viewport}
           width="100%"
           height="100vh"
-          mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API_KEY}
+          mapboxApiAccessToken={
+            "pk.eyJ1IjoiZG9lLWpvaG4tNjkiLCJhIjoiY2txNzM2amplMDI4bTJ3cGJpcWwyeXI1ZyJ9._Fol_gJW1CT1XbiM_VqYkw"
+          }
           mapStyle="mapbox://styles/doe-john-69/ckq74aknx3y3t18nqeyene0mc"
           onViewportChange={(viewport) => {
             console.log(viewport);

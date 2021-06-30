@@ -4,6 +4,7 @@
 /.firebase
 .firebaserc
 firebase.json
+/.netlify
 
 # dependencies
 /node_modules

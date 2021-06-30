@@ -10,11 +10,7 @@ import HeaderLayout from "./Components/Header/HeaderLayout";
 import Map from "./Components/Map/Map";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Analytics from "./Components/Analytics/Analytics";
-
-const consignment_value = 60;
-const on_road_value = 43;
-const on_hold_value = 64;
-const overdue_value = 16;
+import InfoCards from "./Components/Dashboard/InfoCards";
 
 function App() {
   const [collapse, setCollapse] = useState(false);
@@ -22,52 +18,31 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Layout>
-          <Sidebar />
+        <Switch>
           <Layout>
-            <HeaderLayout />
-            <Content style={{ padding: "0 50px", marginTop: "50px" }}>
-              <div className="site-card-wrapper">
-                <Row gutter={16} style={{}}>
-                  <Col xs={24} md={6}>
-                    <Card className="overview-cards" title={"Consignment"}>
-                      {consignment_value}
-                    </Card>
-                  </Col>
-                  <Col xs={24} md={6}>
-                    <Card className="overview-cards" title={"On Road"}>
-                      {on_road_value}
-                    </Card>
-                  </Col>
-                  <Col xs={24} md={6}>
-                    <Card className="overview-cards" title={"On Hold"}>
-                      {on_hold_value}
-                    </Card>
-                  </Col>
-                  <Col xs={24} md={6}>
-                    <Card className="overview-cards" title={"Overdue"}>
-                      {overdue_value}
-                    </Card>
-                  </Col>
-                </Row>
-              </div>
-            </Content>
-            <Content style={{ padding: "0 50px" }}>
-              <Breadcrumb style={{ margin: "16px 0" }}>
-                <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
-              </Breadcrumb>
-              <div className="site-layout-content">
-                <Switch>
+            <Sidebar />
+            <Layout>
+              <HeaderLayout />
+              <Content style={{ padding: "0 50px", marginTop: "50px" }}>
+                <div className="site-card-wrapper">
+                  <Route path="/" exact component={InfoCards} />
+                </div>
+              </Content>
+              <Content style={{ padding: "0 50px" }}>
+                <Breadcrumb style={{ margin: "16px 0" }}>
+                  <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+                </Breadcrumb>
+                <div className="site-layout-content">
                   <Route path="/" exact component={Map} />
                   <Route path="/overview" exact component={Numbers} />
-                </Switch>
-              </div>
-            </Content>
-            <Footer style={{ textAlign: "center" }}>
-              Asset Tracking ©2021
-            </Footer>
+                </div>
+              </Content>
+              <Footer style={{ textAlign: "center" }}>
+                Asset Tracking ©2021
+              </Footer>
+            </Layout>
           </Layout>
-        </Layout>
+        </Switch>
       </Router>
     </div>
   );

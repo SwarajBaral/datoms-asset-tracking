@@ -33,6 +33,7 @@ function App() {
                 <div className="site-layout-content">
                   <Route path="/" exact component={Map} />
                   <Route path="/overview" exact component={Numbers} />
+                  <Route path="/analytics" exact component={Analytics} />
                 </div>
               </Content>
               <Footer style={{ textAlign: "center" }}>

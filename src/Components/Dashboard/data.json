@@ -1,0 +1,22 @@
+{
+    "Datas": [
+        {
+            "key": 1,
+            "aid": "AexkiXKXJSDF092",
+            "remark": "In transit",
+            "temp_value": 18,
+            "tilt_percent": 0.47,
+            "gauge_percent": 0.15,
+            "battery": 34
+        },
+        {
+            "key": 2,
+            "aid": "AmanKDJSLKKL032",
+            "remark": "Transported",
+            "temp_value": 20,
+            "tilt_percent": 0.52,
+            "gauge_percent": 0.56,
+            "battery": 72
+        }
+    ]
+}

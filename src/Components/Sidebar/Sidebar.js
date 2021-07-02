@@ -1,18 +1,15 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Breadcrumb, Menu, Layout } from "antd";
-import { Header } from "antd/lib/layout/layout";
-import SubMenu from "antd/lib/menu/SubMenu";
 import {
   AreaChartOutlined,
   CompassOutlined,
   IdcardOutlined,
-  UserOutlined,
 } from "@ant-design/icons";
 
-import Title from "antd/lib/typography/Title";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
 import logo from "./D.svg";
+
+// import logo from "./D.svg";
 
 function Sidebar() {
   const [collapse, setCollapse] = useState(false);
@@ -54,6 +51,9 @@ function Sidebar() {
         </Menu.Item>
         <Menu.Item key="About" icon={<CompassOutlined />}>
           <Link to="/overview">Overview</Link>
+        </Menu.Item>
+        <Menu.Item key="About obd" icon={<CompassOutlined />}>
+          <Link to="/overview2">Overview2</Link>
         </Menu.Item>
         <Menu.Item key="Analytics" icon={<AreaChartOutlined />}>
           <Link to="/analytics">Analytics</Link>

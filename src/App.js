@@ -3,6 +3,7 @@ import "./App.css";
 import { Breadcrumb, Layout, Menu, Card, Col, Row } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import Numbers from "./Components/Dashboard/Numbers";
+import Numbers2 from "./Components/Dashboard/Numbers2";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HeaderLayout from "./Components/Header/HeaderLayout";
 import Map from "./Components/Map/Map";
@@ -33,6 +34,7 @@ function App() {
                 <div className="site-layout-content">
                   <Route path="/" exact component={Map} />
                   <Route path="/overview" exact component={Numbers} />
+                  <Route path="/overview2" exact component={Numbers2} />
                   <Route path="/analytics" exact component={Analytics} />
                 </div>
               </Content>

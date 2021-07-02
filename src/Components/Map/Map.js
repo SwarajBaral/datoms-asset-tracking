@@ -1,10 +1,7 @@
 import Text from "antd/lib/typography/Text";
 import Title from "antd/lib/typography/Title";
 import React, { useEffect, useState } from "react";
-import ReactMapGL, { Source, Layer } from "react-map-gl";
 import randomLocation from "random-location";
-<<<<<<< Updated upstream
-=======
 import { Card, Table, Tag, Space, Col, Row } from "antd";
 
 import ReactMapGL, { Source, Layer, FullscreenControl } from "react-map-gl";
@@ -17,7 +14,6 @@ mapboxgl.workerClass =
     require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 const { Column, ColumnGroup } = Table;
->>>>>>> Stashed changes
 
 const pointA = {
     type: "circle",
@@ -47,14 +43,11 @@ const R = 5000;
 //     long: "85.885661"
 //   }
 // }]
-<<<<<<< Updated upstream
-=======
 const fullscreenControlStyle = {
     top: 0,
     left: 0,
     padding: "10px",
 };
->>>>>>> Stashed changes
 
 function pointOnCircle({ center, angle, radius }) {
     const randomPoint = randomLocation.randomCirclePoint(bbsr, R);
@@ -67,79 +60,6 @@ function pointOnCircle({ center, angle, radius }) {
 }
 
 function Map() {
-<<<<<<< Updated upstream
-  const [viewport, setViewport] = useState({
-    latitude: 20.2961,
-    longitude: 85.8245,
-    width: "100%",
-    height: "100vh",
-    zoom: 9,
-  });
-  const [pointAData, setPointAData] = useState(null);
-  const [pointBData, setPointBData] = useState(null);
-  const [date, setDate] = useState(new Date().toLocaleString());
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPointAData(
-        pointOnCircle({
-          center: [-100, 0],
-          angle: Date.now() / 1000,
-          radius: 20,
-        })
-      );
-      setPointBData(
-        pointOnCircle({
-          center: [-100, 0],
-          angle: Date.now() / 1000,
-          radius: 20,
-        })
-      );
-    }, 2500);
-    // const animation = window.requestAnimationFrame(() =>
-    //   setInterval(
-    //     setPointData(
-    //       pointOnCircle({
-    //         center: [-100, 0],
-    //         angle: Date.now() / 1000,
-    //         radius: 20,
-    //       })
-    //     ),
-    //     5000
-    //   )
-    // );
-    return () => {
-      clearInterval(interval);
-    };
-  });
-
-  return (
-    <div>
-      <Title level={4}>Live tracking</Title>
-      <Text type="secondary">{date}</Text>
-      <ReactMapGL
-        id="map"
-        {...viewport}
-        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API_KEY}
-        mapStyle="mapbox://styles/doe-john-69/ckq74aknx3y3t18nqeyene0mc"
-        onViewportChange={(viewport) => {
-          setViewport(viewport);
-        }}
-      >
-        {pointAData && (
-          <Source type="geojson" data={pointAData}>
-            <Layer {...pointA} />
-          </Source>
-        )}
-        {pointBData && (
-          <Source type="geojson" data={pointBData}>
-            <Layer {...pointB} />
-          </Source>
-        )}
-      </ReactMapGL>
-    </div>
-  );
-=======
     const [viewport, setViewport] = useState({
         latitude: 20.2961,
         longitude: 85.8245,
@@ -339,7 +259,6 @@ function Map() {
             </div>
         </div>
     );
->>>>>>> Stashed changes
 }
 
 export default Map;

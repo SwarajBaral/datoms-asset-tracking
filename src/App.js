@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import { Breadcrumb, Layout, Row, Col, Card } from "antd";
 import Numbers from "./Components/Dashboard/Numbers";
+import Numbers2 from "./Components/Dashboard/Numbers2";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HeaderLayout from "./Components/Header/HeaderLayout";
 import Map from "./Components/Map/Map";
@@ -19,6 +20,7 @@ function App() {
     return (
         <div className="App">
             <Router>
+<<<<<<< Updated upstream
                 <Layout>
                     <Sidebar />
                     <Layout>
@@ -66,6 +68,35 @@ function App() {
                         </Footer>
                     </Layout>
                 </Layout>
+=======
+                <Switch>
+                    <Layout>
+                        <Sidebar />
+                        <Layout>
+                            <HeaderLayout />
+                            <Content style={{ padding: "0 50px", marginTop: "50px" }}>
+                                <div className="site-card-wrapper">
+                                    <Route path="/" exact component={InfoCards} />
+                                </div>
+                            </Content>
+                            <Content style={{ padding: "0 50px" }}>
+                                <Breadcrumb style={{ margin: "16px 0" }}>
+                                    <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+                                </Breadcrumb>
+                                <div className="site-layout-content">
+                                    <Route path="/" exact component={Map} />
+                                    <Route path="/overview" exact component={Numbers} />
+                                    <Route path="/overview2" exact component={Numbers2} />
+                                    <Route path="/analytics" exact component={Analytics} />
+                                </div>
+                            </Content>
+                            <Footer style={{ textAlign: "center" }}>
+                                Asset Tracking ©2021
+                            </Footer>
+                        </Layout>
+                    </Layout>
+                </Switch>
+>>>>>>> Stashed changes
             </Router>
         </div>
     );

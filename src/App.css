@@ -74,6 +74,10 @@ code {
   background: transparent;
   color: #a4a6b3;
 }
+.ant-menu-item {
+  display: flex;
+  align-items: center;
+}
 .ant-menu-item-selected {
   /* border-left: 4px solid #dde2ff; */
 }
@@ -147,7 +151,7 @@ code {
 
 .overview-cards:hover {
   box-shadow: 0 0 3pt 2pt rgba(255, 133, 0, 1);
-  color: rgba(255, 133, 0, 1);
+  color: rgb(196, 101, 0);
   cursor: pointer;
   /* border: 2px solid ; */
 }
@@ -161,4 +165,31 @@ code {
   align-items: center;
   justify-content: space-evenly;
   width: 200px;
+}
+
+.asset-selector-container {
+  /* outline: 1px solid red; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.asset-selector {
+  width: auto;
+}
+/*
+.asset-selector:hover {
+  background: rgba(255, 133, 0, 0.66);
+  color: white;
+} */
+.ant-layout-sider-children {
+  position: fixed;
+}
+.ant-layout-sider .ant-layout-sider-children {
+  width: 201px;
+}
+
+.ant-layout-sider-collapsed .ant-layout-sider-children {
+  width: 81px;
 }

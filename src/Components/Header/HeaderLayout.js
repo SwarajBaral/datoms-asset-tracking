@@ -21,12 +21,8 @@ function HeaderLayout() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          width: "100%",
           background: "#fff",
           padding: "0 0.5rem",
-          // position: "fixed",
-          // zIndex: 1,
-          // width: "100%",
         }}
       >
         <div className="header-logo-section">
@@ -44,7 +40,14 @@ function HeaderLayout() {
           <Text type="Primary" className="user-name">
             User
           </Text>
-          <Button type="danger" shape="round" size="default">
+          <Button
+            type="danger"
+            shape="round"
+            size="default"
+            onClick={() =>
+              alert("User login/logout functionality coming soon !")
+            }
+          >
             Logout
           </Button>
         </div>

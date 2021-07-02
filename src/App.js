@@ -1,49 +1,52 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Breadcrumb, Layout, Menu } from "antd";
+import { Breadcrumb, Layout, Menu, Card, Col, Row } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-import SubMenu from "antd/lib/menu/SubMenu";
-import DashBoard from "./Components/Dashboard/DashBoard";
 import Numbers from "./Components/Dashboard/Numbers";
-// import Avatar from "antd/lib/avatar/avatar";
-// import  from "antd/lib/menu/Menu";
-
+import Numbers2 from "./Components/Dashboard/Numbers2";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 import HeaderLayout from "./Components/Header/HeaderLayout";
 import Map from "./Components/Map/Map";
 import Sidebar from "./Components/Sidebar/Sidebar";
+import Analytics from "./Components/Analytics/Analytics";
+import InfoCards from "./Components/Dashboard/InfoCards";
 
 function App() {
-  const [collapse, setCollapse] = useState(false);
-
-  const { Footer, Sider, Content } = Layout;
-  return (
-    <div className="App">
-      <Router>
-        <Layout>
-          <Sidebar />
-          <Layout>
-            <HeaderLayout />
-            <Content style={{ padding: "0 50px" }}>
-              <Breadcrumb style={{ margin: "16px 0" }}>
-                <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
-              </Breadcrumb>
-              <div className="site-layout-content">
+    const [collapse, setCollapse] = useState(false);
+    const { Footer, Sider, Content } = Layout;
+    return (
+        <div className="App">
+            <Router>
                 <Switch>
-                  <Route path="/" exact component={Map} />
-                  <Route path="/overview" exact component={Numbers} />
+                    <Layout>
+                        <Sidebar />
+                        <Layout>
+                            <HeaderLayout />
+                            <Content style={{ padding: "0 50px", marginTop: "50px" }}>
+                                <div className="site-card-wrapper">
+                                    <Route path="/" exact component={InfoCards} />
+                                </div>
+                            </Content>
+                            <Content style={{ padding: "0 50px" }}>
+                                <Breadcrumb style={{ margin: "16px 0" }}>
+                                    <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+                                </Breadcrumb>
+                                <div className="site-layout-content">
+                                    <Route path="/" exact component={Map} />
+                                    <Route path="/overview" exact component={Numbers} />
+                                    <Route path="/overview2" exact component={Numbers2} />
+                                    <Route path="/analytics" exact component={Analytics} />
+                                </div>
+                            </Content>
+                            <Footer style={{ textAlign: "center" }}>
+                                Asset Tracking ©2021
+                            </Footer>
+                        </Layout>
+                    </Layout>
                 </Switch>
-              </div>
-            </Content>
-            <Footer style={{ textAlign: "center" }}>
-              Asset Tracking ©2021
-            </Footer>
-          </Layout>
-        </Layout>
-      </Router>
-    </div>
-  );
+            </Router>
+        </div>
+    );
 }
 
 export default App;

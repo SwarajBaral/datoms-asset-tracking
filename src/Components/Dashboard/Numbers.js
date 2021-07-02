@@ -1,272 +1,159 @@
+import React, { useEffect, useState } from "react";
+import { Card, Row, Col, Table } from "antd";
+import GaugeChart from "react-gauge-chart";
+import customData from './data.json';
+import { Liquid } from "@ant-design/charts";
+
+var status = "In transit";
+var Asset_number = "aexkiXKXJSDF092";
+var temp_value = 18;
+var tilt_percent = 0.47;
+var gauge_percent = 0.15;
+var battery = 69
+
+var batteryConfig = {
+    percent: 0.01 * battery,
+    outline: {
+        border: 4,
+        distance: 4,
+    },
+    wave: { length: 128 },
+};
+
+const columns = [
+    {
+        title: "Asset ID",
+        dataIndex: "aid",
+        key: "aid",
+    },
+    {
+        title: "Status",
+        dataIndex: "remark",
+        key: "status",
+    },
+    {
+        title: "#",
+        dataIndex: "click",
+        key: "click",
+        render: (text, record) => (
+            <button id={record['aid']} onClick={() => {
+                Asset_number = record['aid']
+                status = record['remark']
+                temp_value = record['temp_value']
+                tilt_percent = record['tilt_percent']
+                gauge_percent = record['gauge_percent']
+                battery = record['battery']
+            }} style={{ textAlign: 'center', cursor: 'pointer' }}>
+                {'select'}
+            </button>
+        ),
+    },
+];
+
 export default function MyComponent(props) {
-  return (
-    <div
-      css={{
-        display: "flex",
-        maxWidth: "1122px",
-        justifyContent: "flex-start",
-        alignItems: "flex-start",
-        height: "134px",
-        width: "1122px",
-      }}
-    >
-      <div
-        css={{
-          display: "flex",
-          maxWidth: "258px",
-        }}
-      >
-        <div
-          css={{
-            display: "flex",
-            maxWidth: "258px",
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            height: "134px",
-            width: "258px",
-          }}
-        >
-          <div
-            css={{
-              display: "flex",
-              maxWidth: "258px",
-              height: "134px",
-              width: "258px",
-              borderRadius: "8px",
-              borderColor: "rgba(223, 224, 235, 1)",
-              borderWidth: "1px",
-              borderStyle: "solid",
-              backgroundColor: "rgba(255, 255, 255, 1)",
-            }}
-          />
-        </div>
-        <div
-          css={{
-            maxWidth: "194px",
-            color: "rgba(159, 162, 180, 1)",
-            fontSize: "19px",
-            letterSpacing: "0.4000000059604645px",
-            textAlign: "center",
-            fontFamily: "Mulish, sans-serif",
-          }}
-        >
-          Consignments
-        </div>
-        <div
-          css={{
-            maxWidth: "194px",
-            color: "rgba(37, 39, 51, 1)",
-            fontSize: "40px",
-            letterSpacing: "1px",
-            textAlign: "center",
-            fontFamily: "Mulish, sans-serif",
-          }}
-        >
-          60
-        </div>
-      </div>
-      <div
-        css={{
-          display: "flex",
-          maxWidth: "258px",
-        }}
-      >
-        <div
-          css={{
-            display: "flex",
-            maxWidth: "258px",
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            height: "134px",
-            width: "258px",
-          }}
-        >
-          <div
-            css={{
-              display: "flex",
-              maxWidth: "258px",
-              height: "134px",
-              width: "258px",
-              borderRadius: "8px",
-              borderColor: "rgba(223, 224, 235, 1)",
-              borderWidth: "1px",
-              borderStyle: "solid",
-              backgroundColor: "rgba(255, 255, 255, 1)",
-            }}
-          />
-        </div>
-        <div
-          css={{
-            maxWidth: "194px",
-            color: "rgba(159, 162, 180, 1)",
-            fontSize: "19px",
-            letterSpacing: "0.4000000059604645px",
-            textAlign: "center",
-            fontFamily: "Mulish, sans-serif",
-          }}
-        >
-          On road
-        </div>
-        <div
-          css={{
-            maxWidth: "194px",
-            color: "rgba(37, 39, 51, 1)",
-            fontSize: "40px",
-            letterSpacing: "1px",
-            textAlign: "center",
-            fontFamily: "Mulish, sans-serif",
-          }}
-        >
-          43
-        </div>
-      </div>
-      <div
-        css={{
-          display: "flex",
-          maxWidth: "258px",
-        }}
-      >
-        <div
-          css={{
-            display: "flex",
-            maxWidth: "258px",
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            height: "134px",
-            width: "258px",
-          }}
-        >
-          <div
-            css={{
-              display: "flex",
-              maxWidth: "258px",
-              height: "134px",
-              width: "258px",
-              borderRadius: "8px",
-              borderColor: "rgba(223, 224, 235, 1)",
-              borderWidth: "1px",
-              borderStyle: "solid",
-              backgroundColor: "rgba(255, 255, 255, 1)",
-            }}
-          />
-        </div>
-        <div
-          css={{
-            maxWidth: "194px",
-            color: "rgba(159, 162, 180, 1)",
-            fontSize: "19px",
-            letterSpacing: "0.4000000059604645px",
-            textAlign: "center",
-            fontFamily: "Mulish, sans-serif",
-          }}
-        >
-          On hold
-        </div>
-        <div
-          css={{
-            maxWidth: "194px",
-            color: "rgba(37, 39, 51, 1)",
-            fontSize: "40px",
-            letterSpacing: "1px",
-            textAlign: "center",
-            fontFamily: "Mulish, sans-serif",
-          }}
-        >
-          64
-        </div>
-      </div>
-      <div
-        css={{
-          display: "flex",
-          maxWidth: "258px",
-        }}
-      >
-        <div
-          css={{
-            display: "flex",
-            maxWidth: "258px",
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            height: "134px",
-            width: "258px",
-          }}
-        >
-          <div
-            css={{
-              display: "flex",
-              maxWidth: "258px",
-              height: "134px",
-              width: "258px",
-              borderRadius: "8px",
-              borderColor: "rgba(221, 226, 255, 1)",
-              borderWidth: "2px",
-              borderStyle: "solid",
-            }}
-          />
-          <div
-            css={{
-              display: "flex",
-              maxWidth: "258px",
-              height: "134px",
-              width: "258px",
-              borderRadius: "8px",
-              borderColor: "rgba(55, 81, 255, 1)",
-              borderWidth: "1px",
-              borderStyle: "solid",
-              backgroundColor: "rgba(255, 255, 255, 1)",
-            }}
-          />
-        </div>
-        <div
-          css={{
-            maxWidth: "194px",
-            color: "rgba(55, 81, 255, 1)",
-            fontSize: "19px",
-            letterSpacing: "0.4000000059604645px",
-            textAlign: "center",
-            fontFamily: "Mulish, sans-serif",
-          }}
-        >
-          Overdue
-        </div>
-        <div
-          css={{
-            maxWidth: "194px",
-            color: "rgba(55, 81, 255, 1)",
-            fontSize: "40px",
-            letterSpacing: "1px",
-            textAlign: "center",
-            fontFamily: "Mulish, sans-serif",
-          }}
-        >
-          16
-        </div>
-        <div
-          css={{
-            display: "flex",
-            maxWidth: "16px",
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            height: "16px",
-            width: "16px",
-          }}
-        >
-          {/* <Image
-              image="https://cdn.builder.io/api/v1/image/assets%2FTEMP%2Fb7e0aebc4316400ab99eb9bd711fcec2"
-              backgroundPosition="center"
-              backgroundSize="contain"
-              aspectRatio={1.067082107356726}
-              css={{
-                display: "flex",
-                position: "relative",
-                minWidth: "20px",
-                minHeight: "20px",
-                maxWidth: "14.308304786682129px",
-                width: "14.308304786682129px",
-              }}
-            /> */}
-        </div>
-      </div>
-    </div>
-  );
+    const today = new Date();
+
+    const [date, setDate] = useState(today.toLocaleString());
+    const [time, setTime] = useState(
+        today.toLocaleString("en-US", {
+            hour: "numeric",
+            minute: "numeric",
+            second: "numeric",
+            hour12: true,
+        })
+    );
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTime(
+                new Date().toLocaleString("en-US", {
+                    hour: "numeric",
+                    minute: "numeric",
+                    hour12: true,
+                })
+            );
+            setDate(new Date().toLocaleString());
+        }, 1000);
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
+
+    return (
+        <div>
+            <h1>Shipment Status</h1>
+            <p>Last Updated : {date}</p>
+            <Row className={'overview'}>
+
+                <Col span={24}>
+                    <Card title={"CURRENT ASSET DETAILS"} style={{ margin: '0 5px' }}>
+                        <pre>
+                            <b>ASSET ID</b> : {Asset_number}<br />
+                            <b>STATUS</b>   : {status}<br />
+                        </pre>
+                        <small>Last Updated : {time}</small>
+                    </Card>
+                    <Row>
+                        <Col span={6} style={{ padding: 5 }}>
+                            <Card title="Shock" className="o_cards">
+                                <GaugeChart
+                                    id="gauge-chart3"
+                                    nrOfLevels={8}
+                                    percent={gauge_percent}
+                                    formatTextValue={(gauge_percent) =>
+                                        (gauge_percent / 12.5).toFixed(1) + " G"
+                                    }
+                                    textColor="#464A4F"
+                                />
+                                <center>Force(G)</center>
+                                <center>
+                                    <small>Last Updated: {time}</small>
+                                </center>
+                            </Card>
+                        </Col >
+                        <Col span={6} style={{ padding: 5 }}>
+                            <Card title="Temperature" className={'temp'}>
+                                <center className={'bigvalue'}>{temp_value}°C</center>
+                                <center>
+                                    Current Temperature
+                                </center>
+                                <center>
+                                    <small>Last Updated: {time}</small>
+                                </center>
+                            </Card>
+                        </Col >
+                        <Col span={6} style={{ padding: 5 }}>
+                            <Card title={"Orientation"} className="o_cards">
+                                <GaugeChart
+                                    id="gauge-chart2"
+                                    nrOfLevels={30}
+                                    percent={tilt_percent}
+                                    formatTextValue={(tilt_percent) =>
+                                        (tilt_percent * 1.8).toFixed(1) + " deg"
+                                    }
+                                    cornerRadius={3}
+                                    textColor="#464A4F"
+                                />
+                                <center>Tilt(Deg)</center>
+                                <center>
+                                    <small>Last Updated: {time}</small>
+                                </center >
+                            </Card >
+                        </Col >
+                        <Col span={6} style={{ padding: 5 }}>
+                            <Card title="Battery" className="battery">
+                                <div style={{ textAlign: "center" }}>
+                                    <Liquid {...batteryConfig} />
+                                    <b>Remaining : </b>{battery} %
+                                    <center>
+                                        <small>Last Updated: {time}</small>
+                                    </center>
+                                </div >
+                            </Card >
+                        </Col >
+                    </Row >
+                </Col >
+            </Row >
+        </div >
+    );
 }

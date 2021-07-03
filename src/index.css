@@ -1,6 +1,6 @@
 /* For Overview Page */
 
-.table_of_assets .ant-card-body {
+/* .table_of_assets .ant-card-body {
     padding: 0;
     margin: 0;
 }
@@ -42,21 +42,16 @@
 .bigvalue {
     font-size: 70px;
     font-weight: 500;
-}
+} */
 
 /* For Overview2 Page */
 
-.overview2 .ant-card-head {
-    background-color: #001529 !important;
-    color: rgba(255, 133, 0, 1);
-    text-align: center;
+/* .overview2 .ant-card-head {
+  background-color: #001529 !important;
+  color: rgba(255, 133, 0, 1);
+  text-align: center;
 }
 
 .overview2 .ant-card-body {
-    border: 2px solid #001529!important;
-}
-
-.o_cards .ant-card-body {
-    padding: 39px 5px 38px 5px;
-    margin: 0;
-}
+  border: 2px solid #001529 !important;
+} */

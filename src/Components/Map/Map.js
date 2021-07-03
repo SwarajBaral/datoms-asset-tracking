@@ -2,7 +2,7 @@ import Text from "antd/lib/typography/Text";
 import Title from "antd/lib/typography/Title";
 import React, { useEffect, useState } from "react";
 import randomLocation from "random-location";
-import { Card, Table, Tag, Space, Col, Row } from "antd";
+import { Card, Table, Tag, Space, Col, Row, Breadcrumb, Divider } from "antd";
 import Pins from "./Pins";
 import ReactMapGL, {
   Source,
@@ -105,48 +105,66 @@ function Map() {
   }, []);
 
   return (
-    <div clssName="dashboard-map">
-      <Title level={4}>Live tracking</Title>
-      <Text type="secondary">{date}</Text>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "flex-start",
-          justifyContent: "center",
-        }}
-      >
-        <ReactMapGL
-          id="map"
-          {...viewport}
-          width="100%"
-          height="100vh"
-          mapboxApiAccessToken={
-            "pk.eyJ1IjoiZG9lLWpvaG4tNjkiLCJhIjoiY2txNzM2amplMDI4bTJ3cGJpcWwyeXI1ZyJ9._Fol_gJW1CT1XbiM_VqYkw"
-          }
-          mapStyle="mapbox://styles/doe-john-69/ckq74aknx3y3t18nqeyene0mc"
-          onViewportChange={(viewport) => {
-            setViewport(viewport);
-          }}
-        >
-          <Pins
-            data={locationPoints}
-            onClick={setPopUpInfo}
-            className="markers"
-          />
-          {popUpInfo && (
-            <Popup
-              tipSize={5}
-              anchor="top"
-              longitude={popUpInfo.longitude}
-              latitude={popUpInfo.latitude}
-              closeOnClick={false}
-              onClose={setPopUpInfo}
+    <>
+      <Breadcrumb style={{ margin: "16px 0" }}>
+        <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+      </Breadcrumb>
+      <div className="site-layout-content">
+        <div clssName="dashboard-map">
+          <Title level={4}>Live tracking</Title>
+          <Text type="primary">{date}</Text>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "flex-start",
+              justifyContent: "center",
+              marginTop: "2em",
+            }}
+          >
+            <ReactMapGL
+              id="map"
+              {...viewport}
+              width="100%"
+              height="100vh"
+              mapboxApiAccessToken={
+                "pk.eyJ1IjoiZG9lLWpvaG4tNjkiLCJhIjoiY2txNzM2amplMDI4bTJ3cGJpcWwyeXI1ZyJ9._Fol_gJW1CT1XbiM_VqYkw"
+              }
+              mapStyle="mapbox://styles/doe-john-69/ckq74aknx3y3t18nqeyene0mc"
+              onViewportChange={(viewport) => {
+                setViewport(viewport);
+              }}
             >
-              <AssetInfo info={popUpInfo} />
-            </Popup>
-          )}
-          {/* {pointBData && (
+              <Pins
+                data={locationPoints}
+                onClick={setPopUpInfo}
+                className="markers"
+              />
+              {popUpInfo && popUpInfo.id === "8754" && (
+                <Popup
+                  tipSize={5}
+                  anchor="top"
+                  longitude={pointAData.longitude}
+                  latitude={pointAData.latitude}
+                  closeOnClick={true}
+                  onClose={setPopUpInfo}
+                >
+                  <AssetInfo info={popUpInfo} />
+                </Popup>
+              )}
+              {popUpInfo && popUpInfo.id === "5421" && (
+                <Popup
+                  tipSize={5}
+                  anchor="top"
+                  longitude={pointBData.longitude}
+                  latitude={pointBData.latitude}
+                  closeOnClick={false}
+                  onClose={setPopUpInfo}
+                >
+                  <AssetInfo info={popUpInfo} />
+                </Popup>
+              )}
+              {/* {pointBData && (
             <Source type="geojson" data={pointBData}>
               <Layer {...pointB} />
             </Source>
@@ -157,9 +175,56 @@ function Map() {
             // </Source>
             <Pins data={pointAData} />
           )} */}
-          <FullscreenControl style={fullscreenControlStyle} />
-        </ReactMapGL>
-        {/* <div style={{ height: "100vh" }}>
+              <FullscreenControl style={fullscreenControlStyle} />
+              <div className="control-panel">
+                <h2 align="center">Real time location of assets</h2>
+                <hr style={{ margin: "1em 0" }} />
+                {!popUpInfo && (
+                  <p align="center">
+                    Please select an asset on the map to view the details
+                  </p>
+                )}
+                {popUpInfo && popUpInfo.id === "8754" && (
+                  <>
+                    <Row gutter={[12, 12]} justify="center">
+                      <Col span={6}>
+                        <strong>Asset ID: </strong>
+                      </Col>
+                      <Col span={6}>{pointAData.id}</Col>
+                      <Col span={6}>
+                        <strong>Asset ID: </strong>
+                      </Col>
+                      <Col span={6}>{pointAData.id}</Col>
+                      <Col span={6}>
+                        <strong>Long: </strong>
+                      </Col>
+                      <Col span={6}>{pointAData.longitude.toFixed(4)}</Col>
+                      <Col span={6}>
+                        <strong>Lat: </strong>
+                      </Col>
+                      <Col span={6}>{pointAData.latitude.toFixed(4)}</Col>
+                    </Row>
+                  </>
+                )}
+                {popUpInfo && popUpInfo.id === "5421" && (
+                  <>
+                    <p>
+                      <strong>Asset ID: </strong>
+                      {pointBData.id}
+                    </p>
+                    <p>
+                      <strong>Long: </strong>
+                      {pointBData.longitude}
+                    </p>
+                    <p>
+                      <strong>Lat: </strong>
+                      {pointBData.latitude}
+                    </p>
+                  </>
+                )}
+              </div>
+            </ReactMapGL>
+            {/* <div style={{ height: "100vh" }}>
           <Card
             title="Real time location"
             style={{
@@ -179,8 +244,10 @@ function Map() {
             </Table>
           </Card>
         </div> */}
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

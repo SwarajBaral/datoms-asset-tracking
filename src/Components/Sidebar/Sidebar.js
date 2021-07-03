@@ -5,6 +5,7 @@ import {
   AreaChartOutlined,
   CompassOutlined,
   IdcardOutlined,
+  UnorderedListOutlined,
 } from "@ant-design/icons";
 
 import logo from "./D.svg";
@@ -50,13 +51,16 @@ function Sidebar() {
           <Link to="/">Dashboard</Link>
         </Menu.Item>
         <Menu.Item key="About" icon={<CompassOutlined />}>
-          <Link to="/overview">Overview</Link>
-        </Menu.Item>
-        <Menu.Item key="About obd" icon={<CompassOutlined />}>
-          <Link to="/overview2">Overview2</Link>
-        </Menu.Item>
-        <Menu.Item key="Analytics" icon={<AreaChartOutlined />}>
           <Link to="/analytics">Analytics</Link>
+        </Menu.Item>
+        {/* <Menu.Item key="About obd" icon={<CompassOutlined />}>
+          <Link to="/analytics/obd">Overview2</Link>
+        </Menu.Item> */}
+        <Menu.Item key="Analytics" icon={<AreaChartOutlined />}>
+          <Link to="/graphs">Graphs</Link>
+        </Menu.Item>
+        <Menu.Item key="Allassets" icon={<UnorderedListOutlined />}>
+          <Link to="/all-assets">All assets</Link>
         </Menu.Item>
         {/* <SubMenu
           icon={<UserOutlined />}

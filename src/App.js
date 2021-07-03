@@ -10,6 +10,7 @@ import Map from "./Components/Map/Map";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Analytics from "./Components/Analytics/Analytics";
 import InfoCards from "./Components/Dashboard/InfoCards";
+import Allassets from "./Components/Allassets/Allassets";
 
 function App() {
   const [collapse, setCollapse] = useState(false);
@@ -28,15 +29,11 @@ function App() {
                 </div>
               </Content>
               <Content style={{ padding: "0 50px" }}>
-                <Breadcrumb style={{ margin: "16px 0" }}>
-                  <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
-                </Breadcrumb>
-                <div className="site-layout-content">
-                  <Route path="/" exact component={Map} />
-                  <Route path="/overview" exact component={Numbers} />
-                  <Route path="/overview2" exact component={Numbers2} />
-                  <Route path="/analytics" exact component={Analytics} />
-                </div>
+                <Route path="/" exact component={Map} />
+                <Route path="/analytics" exact component={Numbers} />
+                <Route path="/analytics/obd" exact component={Numbers2} />
+                <Route path="/graphs" exact component={Analytics} />
+                <Route path="/all-assets" exact component={Allassets} />
               </Content>
               <Footer style={{ textAlign: "center" }}>
                 Asset Tracking ©2021

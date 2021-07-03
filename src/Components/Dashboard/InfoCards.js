@@ -7,7 +7,7 @@ const overdue_value = 16;
 
 function InfoCards() {
   return (
-    <Row gutter={16} style={{}}>
+    <Row gutter={16}>
       <Col xs={24} md={6}>
         <Card className="overview-cards" title={"Consignment"}>
           {consignment_value}

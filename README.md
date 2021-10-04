@@ -5,4 +5,4 @@
 </ul>
 
 ## Deployments
-- Click <a href="https://www.datoms-asset-tracker.web.app" target="_blank">here</a>
+- Click <a href="https://datoms-asset-tracker.web.app" target="_blank">here</a>
